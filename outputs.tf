@@ -1,7 +1,7 @@
 output "vpc_id" {
   description = "ID of project VPC"
-#   value       = module.vpc.vpc_id
-    value       = aws_vpc.csye6225.id
+  #   value       = module.vpc.vpc_id
+  value = aws_vpc.csye6225.id
 }
 
 output "public_subnet_ids" {
@@ -48,5 +48,5 @@ output "private_route_table_association_ids" {
 
 
 output "az" {
-    value = data.aws_availability_zones.available.names
+  value = data.aws_availability_zones.available.names
 }
