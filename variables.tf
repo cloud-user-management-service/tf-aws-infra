@@ -1,15 +1,15 @@
 variable "vp_cidr" {
-  type        = string
+  type= string
   description = "The CIDR for the VPC"
 }
 
 variable "region" {
-  type        = string
+  type=string
   description = "The region in which the VPC will be created"
 }
 
 variable "public_base_cidr" {
-  type        = string
+  type                  =      string
   description = "The base CIDR for the public subnets"
 }
 
