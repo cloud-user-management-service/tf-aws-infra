@@ -1,4 +1,7 @@
-
+variable "vp_cidr" {
+  type        = string
+  description = "The CIDR for the VPC"
+}
 
 variable "region" {
   type        = string
