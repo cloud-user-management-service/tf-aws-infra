@@ -1,6 +1,6 @@
 resource "aws_subnet" "csye6225_public_subnet" {
-  vpc_id     = aws_vpc.csye6225.id
-  cidr_block = var.subnet_cidr_block
+  vpc_id            = aws_vpc.csye6225.id
+  cidr_block        = var.subnet_cidr_block
   availability_zone = var.availability_zones[0]
 
   map_public_ip_on_launch = true
