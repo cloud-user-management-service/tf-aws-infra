@@ -14,6 +14,8 @@ resource "aws_security_group" "webapp_sg" {
     }
   }
 
+
+
   egress {
     from_port   = 0
     to_port     = 0
