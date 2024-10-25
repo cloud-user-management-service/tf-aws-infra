@@ -19,7 +19,7 @@ variable "subnet_cidr_block" {
 variable "ami_id" {
   type        = string
   description = "The AMI ID for the EC2 instance"
-  default     = "ami-0d9bf1d536f327265"
+  # default     = "ami-0d9bf1d536f327265"
 }
 
 variable "instance_type" {
@@ -52,7 +52,24 @@ variable "availability_zones" {
   default     = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
+variable "private_subnet_cidr_block_a" {
+  type        = string
+  description = "The CIDR block for the private subnets"
+  default     = "192.12.2.0/24"
+}
 
+variable "private_subnet_cidr_block_b" {
+  type        = string
+  description = "The CIDR block for the private subnets"
+  default     = "192.12.3.0/24"
+}
+
+variable "db_password" {
+  type        = string
+  description = "The password for the database"
+  #   sensitive   = true
+  default = "CSYE6225password"
+}
 
 
 
