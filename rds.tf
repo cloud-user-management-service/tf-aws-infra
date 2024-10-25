@@ -1,10 +1,10 @@
 # create a MySQL RDS instance
 resource "aws_db_instance" "mysql_instance" {
-  allocated_storage    = 20
-  engine         = "mysql"
-  engine_version = "8.0"
-  instance_class = "db.t3.micro" # Cheapest instance type
-  multi_az       = false         # Do not create a multi-AZ deployment
+  allocated_storage = 20
+  engine            = "mysql"
+  engine_version    = "8.0"
+  instance_class    = "db.t3.micro" # Cheapest instance type
+  multi_az          = false         # Do not create a multi-AZ deployment
   //DB instance identifier
   identifier = "csye6225"
   username   = "csye6225"
