@@ -71,29 +71,28 @@ variable "db_password" {
   default = "CSYE6225password"
 }
 
+variable "dev_domain_zone_id" {
+  type        = string
+  description = "The zone ID for the S3 bucket"
+  default     = "Z00435553RLQ8XGFYJJS3"
+}
+
+variable "db_identifier" {
+  type        = string
+  description = "The identifier for the RDS instance"
+  default     = "csye6225"
+}
+
+variable "db_username" {
+  type        = string
+  description = "The username for the database"
+  default     = "csye6225"
+}
+
+variable "db_name" {
+  type        = string
+  description = "The name of the database"
+  default     = "csye6225"
+}
 
 
-# variable "public_base_cidr" {
-#   type        = string
-#   description = "The base CIDR for the public subnets"
-# }
-
-# variable "private_base_cidr" {
-#   type        = string
-#   description = "The base CIDR for the private subnets"
-# }
-
-# variable "subnet_new_bits" {
-#   type        = number
-#   description = "The number of bits to add to the subnet"
-# }
-
-# variable "start_index_of_availability_zones" {
-#   type        = number
-#   description = "The start index of the availability zones"
-# }
-
-# variable "end_index_of_availability_zones" {
-#   type        = number
-#   description = "The end index of the availability zones"
-# }
