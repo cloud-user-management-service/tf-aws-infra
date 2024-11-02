@@ -29,7 +29,7 @@ resource "aws_s3_bucket" "profile_image_bucket" {
 
 resource "aws_route53_record" "app_a_record" {
   zone_id = var.dev_domain_zone_id
-  name    = "dev.llling.me"      
+  name    = "dev.llling.me"
   type    = "A"
   ttl     = 300
 
