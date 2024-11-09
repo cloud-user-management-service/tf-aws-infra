@@ -12,7 +12,7 @@ resource "aws_security_group" "mysql_security_group" {
     security_groups = [aws_security_group.webapp_sg.id]
   }
 
-  # diallow all egress traffic
+
   egress {
     from_port   = 0
     to_port     = 0

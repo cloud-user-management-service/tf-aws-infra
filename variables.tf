@@ -10,7 +10,7 @@ variable "region" {
   default     = "us-west-2"
 }
 
-variable "subnet_cidr_block" {
+variable "public_subnet1_cidr_block" {
   type        = string
   description = "The CIDR block for the subnets"
   default     = "192.12.1.0/24"
@@ -273,4 +273,22 @@ variable "scale_period" {
   type        = number
   description = "The period for the scaling"
   default     = 120
+}
+
+variable "scaling_adjustment_type" {
+  type        = string
+  description = "The type of scaling adjustment"
+  default     = "ChangeInCapacity"
+}
+
+variable "healthz_path" {
+  type        = string
+  description = "The path for the health check"
+  default     = "/healthz"
+}
+
+variable "max_connections" {
+  type        = number
+  description = "The maximum number of connections for the database"
+  default     = 500
 }
