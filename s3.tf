@@ -27,15 +27,5 @@ resource "aws_s3_bucket" "profile_image_bucket" {
   force_destroy = true
 }
 
-resource "aws_route53_record" "app_a_record" {
-  zone_id = var.dev_domain_zone_id
-  name    = "dev.llling.me"
-  type    = "A"
-  ttl     = 300
-
-  records = [aws_instance.webapp.public_ip]
-
-}
-
 
 
