@@ -10,7 +10,7 @@ variable "region" {
   default     = "us-west-2"
 }
 
-variable "public_subnet1_cidr_block" {
+variable "subnet_cidr_block" {
   type        = string
   description = "The CIDR block for the subnets"
   default     = "192.12.1.0/24"
