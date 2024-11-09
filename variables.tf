@@ -218,13 +218,13 @@ variable "max_size" {
 variable "threshold_up" {
   type        = number
   description = "The threshold for scaling up"
-  default     = 5
+  default     = 15
 }
 
 variable "threshold_down" {
   type        = number
   description = "The threshold for scaling down"
-  default     = 3
+  default     = 10
 }
 
 variable "listener_protocol" {
@@ -272,7 +272,7 @@ variable "scale_evaluation_periods" {
 variable "scale_period" {
   type        = number
   description = "The period for the scaling"
-  default     = 120
+  default     = 60
 }
 
 variable "scaling_adjustment_type" {
