@@ -2,7 +2,7 @@
 
 # Define the IAM role for S3 access
 resource "aws_iam_role" "web_iam_role" {
-  name = "EC2_S3_iam_Role"
+  name = "EC2_web_iam_Role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
