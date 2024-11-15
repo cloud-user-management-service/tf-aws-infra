@@ -26,7 +26,7 @@ resource "aws_security_group" "webapp_sg" {
   //SSH access from anywhere 
   ingress {
     description = "Allow SSH access from anywhere"
-    from_port   = var.ssh_port//22
+    from_port   = var.ssh_port //22
     to_port     = var.ssh_port
     protocol    = "tcp"
 
