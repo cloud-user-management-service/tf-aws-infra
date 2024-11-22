@@ -24,3 +24,8 @@ output "internet_gateway_id" {
   description = "ID of internet gateway"
   value       = aws_internet_gateway.csye6225_igw.id
 }
+
+output "sns_topic_arn" {
+  value       = aws_sns_topic.email_verification_topic.arn
+  description = "The ARN of the SNS topic"
+}

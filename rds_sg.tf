@@ -9,7 +9,8 @@ resource "aws_security_group" "mysql_security_group" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.webapp_sg.id]
+    security_groups = [aws_security_group.webapp_sg.id, aws_security_group.lambda_sg.id]
+    # security_groups = [aws_security_group.webapp_sg.id]
   }
 
 

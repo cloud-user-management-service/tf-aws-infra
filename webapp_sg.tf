@@ -30,7 +30,7 @@ resource "aws_security_group" "webapp_sg" {
     to_port     = var.ssh_port
     protocol    = "tcp"
 
-    cidr_blocks = ["0.0.0.0/0"] //["${var.my_ip}/32"] //["0.0.0.0/0"]//["YOUR_IP/32"] //Replace YOUR_IP with your IP address to allow ssh access to the webapp instance
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
 

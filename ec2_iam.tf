@@ -1,6 +1,4 @@
-
-
-# Define the IAM role for S3 access
+# Define the IAM role for the EC2 instance
 resource "aws_iam_role" "web_iam_role" {
   name = "EC2_web_iam_Role"
   assume_role_policy = jsonencode({
@@ -19,8 +17,8 @@ resource "aws_iam_role" "web_iam_role" {
 }
 
 # Define the IAM policy for S3 access
-resource "aws_iam_policy" "web_iam_role_policy" {
-  name        = "web_iam_role_policy"
+resource "aws_iam_policy" "s3_iam_role_policy" {
+  name        = "s3_iam_role_policy"
   description = "Iam role policy for EC2 to access S3 for user profile image"
   policy = jsonencode({
     Version = "2012-10-17",
@@ -42,17 +40,40 @@ resource "aws_iam_policy" "web_iam_role_policy" {
   })
 }
 
-
-# Attach the policy to the IAM role
-resource "aws_iam_role_policy_attachment" "attach_s3_policy_to_role" {
-  role       = aws_iam_role.web_iam_role.name
-  policy_arn = aws_iam_policy.web_iam_role_policy.arn
+//Define the IAM policy for sns topic access
+resource "aws_iam_policy" "sns_iam_role_policy" {
+  name = "sns_iam_role_policy"
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "sns:Publish",
+        ],
+        Resource = "*"
+      }
+    ]
+  })
 }
 
-resource "aws_iam_role_policy_attachment" "attach_cloudwatch_policy" {
-  role = aws_iam_role.web_iam_role.name
-  #   policy_arn = aws_iam_policy.cloudwatch_agent_policy.arn
+
+// Attach the IAM policy to the IAM role
+resource "aws_iam_role_policy_attachment" "attach_s3_policy_to_role" {
+  role       = aws_iam_role.web_iam_role.name
+  policy_arn = aws_iam_policy.s3_iam_role_policy.arn
+}
+
+// attach the CloudWatchAgentAdminPolicy to the IAM role
+resource "aws_iam_role_policy_attachment" "cloudwatch_policy" {
+  role       = aws_iam_role.web_iam_role.name
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy"
+}
+
+// attach sns publish policy to the IAM role
+resource "aws_iam_role_policy_attachment" "attach_sns_policy_to_role" {
+  role       = aws_iam_role.web_iam_role.name
+  policy_arn = aws_iam_policy.sns_iam_role_policy.arn
 }
 
 # Associate the IAM role with an EC2 instance profile
