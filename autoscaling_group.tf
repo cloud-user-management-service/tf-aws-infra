@@ -1,8 +1,9 @@
 resource "aws_autoscaling_group" "webapp_asg" {
+  name                = "webapp_asg"
   desired_capacity    = var.desired_capacity
   min_size            = var.min_size
   max_size            = var.max_size
-  vpc_zone_identifier = [aws_subnet.csye6225_private_subnet_1.id, aws_subnet.csye6225_private_subnet_2.id]
+  vpc_zone_identifier = [aws_subnet.csye6225_public_subnet_1.id, aws_subnet.csye6225_public_subnet_2.id]
 
   launch_template {
     id      = aws_launch_template.webapp_launch_template.id

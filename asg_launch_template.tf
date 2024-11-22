@@ -8,8 +8,8 @@ resource "aws_launch_template" "webapp_launch_template" {
 
   # Networking settings
   network_interfaces {
-    associate_public_ip_address = false
-    subnet_id                   = aws_subnet.csye6225_private_subnet_1.id
+    associate_public_ip_address = true
+    subnet_id                   = aws_subnet.csye6225_public_subnet_1.id
     security_groups             = [aws_security_group.webapp_sg.id]
   }
 
@@ -25,6 +25,7 @@ resource "aws_launch_template" "webapp_launch_template" {
               echo "DB_URL=jdbc:mysql://${aws_db_instance.mysql_instance.endpoint}/${aws_db_instance.mysql_instance.db_name}?createDatabaseIfNotExist=true" | sudo tee -a /opt/myapp/.env
               echo "DB_USERNAME=csye6225" | sudo tee -a /opt/myapp/.env
               echo "DB_PASSWORD=${aws_db_instance.mysql_instance.password}" | sudo tee -a /opt/myapp/.env
+              echo "AWS_SNS_TOPIC_ARN=${aws_sns_topic.email_verification_topic.arn}" | sudo tee -a /opt/myapp/.env
               echo "AWS_REGION=${var.region}" | sudo tee -a /opt/myapp/.env
               echo "AWS_BUCKET_NAME=${aws_s3_bucket.profile_image_bucket.bucket}" | sudo tee -a /opt/myapp/.env
 
