@@ -24,7 +24,9 @@ resource "aws_iam_policy" "lambda_policy" {
         Effect = "Allow",
         Action = [
           "sns:Publish",
+          "sns:Subscribe",
           "rds-db:connect",
+          "rds:DescribeDBInstances",
         ],
         Resource = "*"
       }
