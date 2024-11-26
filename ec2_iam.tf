@@ -51,7 +51,7 @@ resource "aws_iam_policy" "sns_iam_role_policy" {
         Action = [
           "sns:Publish",
         ],
-        Resource = "*"
+        Resource = aws_sns_topic.email_verification_topic.arn
       }
     ]
   })
