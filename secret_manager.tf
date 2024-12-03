@@ -2,7 +2,7 @@
 resource "random_password" "db_password" {
   length           = var.db_password_length
   special          = true
-  override_special = "!@#$%^&*()-_=+[]{}<>?/"
+  override_special = "!#$%^&*()-_=+[]{}<>?"
 }
 
 # Store database password in Secrets Manager
