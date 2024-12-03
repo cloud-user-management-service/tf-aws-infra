@@ -1,6 +1,7 @@
 # Fetch the password from Secrets Manager to use for RDS
 data "aws_secretsmanager_secret_version" "db_password" {
   secret_id = aws_secretsmanager_secret.db_password.id
+  depends_on = [aws_secretsmanager_secret_version.db_password_value]
 }
 
 # create a MySQL RDS instance
