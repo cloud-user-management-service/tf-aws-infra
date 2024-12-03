@@ -141,10 +141,15 @@ variable "key_name" {
   description = "The name of the key pair"
 }
 
-variable "listener_port" {
+variable "listener_port_https" {
   type        = number
   description = "The port for the listener"
-  # default     = 80
+  # default     = 443
+}
+
+variable "listener_port_http" {
+  type        = number
+  description = "The port for the listener"
 }
 
 variable "webapp_port" {
@@ -219,10 +224,14 @@ variable "threshold_down" {
   # default     = 10
 }
 
-variable "listener_protocol" {
+variable "listener_protocol_https" {
   type        = string
   description = "The protocol for the listener"
-  # default     = "HTTP"
+}
+
+variable "listener_protocol_http" {
+  type        = string
+  description = "The protocol for the listener"
 }
 
 variable "listener_action_type" {
@@ -324,4 +333,33 @@ variable "lambda_zip_file" {
 variable "base_url" {
   type        = string
   description = "The base URL for the webapp"
+}
+
+variable "key_rotation" {
+  description = "Enable key rotation"
+  default     = true
+}
+
+variable "db_password_length" {
+  description = "Length of the auto-generated database password"
+  default     = 16
+}
+
+variable "email_service_secret_name" {
+  description = "The name of the email service credential"
+  default     = "sendgrid-service-credentials"
+}
+
+variable "db_password_secret_name" {
+  description = "The name of the database password secret"
+  default     = "mysql-password"
+}
+
+variable "ssl_policy" {
+  description = "The SSL policy for the listener"
+  default     = "ELBSecurityPolicy-TLS-1-2-2017-01"
+}
+
+variable "certificate_arn" {
+  description = "The ARN for the SSL certificate"
 }
