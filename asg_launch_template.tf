@@ -8,8 +8,8 @@ resource "aws_launch_template" "webapp_launch_template" {
 
   # Networking settings
   network_interfaces {
-    associate_public_ip_address = true
-    subnet_id                   = aws_subnet.csye6225_public_subnet_1.id
+    associate_public_ip_address = false
+    subnet_id                   = aws_subnet.csye6225_private_subnet_1.id
     security_groups             = [aws_security_group.webapp_sg.id]
   }
 
