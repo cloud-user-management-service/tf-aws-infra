@@ -27,6 +27,7 @@ resource "aws_iam_policy" "lambda_policy" {
           "sns:Subscribe",
           "rds-db:connect",
           "rds:DescribeDBInstances",
+          "secretsmanager:GetSecretValue",
         ],
         Resource = "*"
       }

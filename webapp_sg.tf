@@ -43,6 +43,6 @@ resource "aws_security_group" "webapp_sg" {
   }
 
   tags = {
-    Name = "app_sg"
+    Name = "webapp_sg"
   }
 }

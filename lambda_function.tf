@@ -12,14 +12,16 @@ resource "aws_lambda_function" "email_verification_lambda" {
   }
   environment {
     variables = {
-      RDS_HOST         = aws_db_instance.mysql_instance.address
-      RDS_PORT         = aws_db_instance.mysql_instance.port
-      RDS_NAME         = var.db_name
-      RDS_USER         = var.rds_username
-      RDS_PASSWORD     = var.rds_password
-      SENDGRID_API_KEY = var.sendgrid_api_key
-      EMAIL_FROM       = var.email_from
-      BASE_URL         = var.base_url
+      RDS_HOST = aws_db_instance.mysql_instance.address
+      RDS_PORT = aws_db_instance.mysql_instance.port
+      RDS_NAME = var.db_name
+      RDS_USER = var.rds_username
+      # RDS_PASSWORD     = var.rds_password
+      # SENDGRID_API_KEY = var.sendgrid_api_key
+      EMAIL_SECRET_NAME = var.email_service_secret_name
+      DB_SECRET_NAME    = var.db_password_secret_name
+      EMAIL_FROM        = var.email_from
+      BASE_URL          = var.base_url
     }
   }
 }
