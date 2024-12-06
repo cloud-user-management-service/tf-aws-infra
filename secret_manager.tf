@@ -29,6 +29,6 @@ resource "aws_secretsmanager_secret" "email_service_secret" {
 resource "aws_secretsmanager_secret_version" "email_service_secret_value" {
   secret_id = aws_secretsmanager_secret.email_service_secret.id
   secret_string = jsonencode({
-    password = var.sendgrid_api_key
+    sendgrid_api_key = var.sendgrid_api_key
   })
 }

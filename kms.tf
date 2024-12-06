@@ -1,7 +1,8 @@
 # KMS Key for EC2
 resource "aws_kms_key" "ec2_key" {
-  description         = "KMS Key for EC2"
-  enable_key_rotation = var.key_rotation
+  description             = "KMS Key for EC2"
+  enable_key_rotation     = var.key_rotation
+  rotation_period_in_days = var.rotation_period_in_days
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -61,8 +62,9 @@ resource "aws_kms_key" "ec2_key" {
 
 # KMS Key for RDS
 resource "aws_kms_key" "rds_key" {
-  description         = "KMS Key for RDS"
-  enable_key_rotation = var.key_rotation
+  description             = "KMS Key for RDS"
+  enable_key_rotation     = var.key_rotation
+  rotation_period_in_days = var.rotation_period_in_days
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -99,8 +101,9 @@ data "aws_caller_identity" "current" {}
 # KMS Key for S3
 # KMS Key for S3 (updated policy allowing PutKeyPolicy for root and admin)
 resource "aws_kms_key" "s3_encrypt_key" {
-  description         = "KMS Key for S3 buckets"
-  enable_key_rotation = var.key_rotation
+  description             = "KMS Key for S3 buckets"
+  enable_key_rotation     = var.key_rotation
+  rotation_period_in_days = var.rotation_period_in_days
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -161,8 +164,9 @@ resource "aws_kms_key" "s3_encrypt_key" {
 
 # KMS Key for Secrets Manager
 resource "aws_kms_key" "secrets_manager_key" {
-  description         = "KMS Key for Secrets Manager (Database Password & Email Service)"
-  enable_key_rotation = var.key_rotation
+  description             = "KMS Key for Secrets Manager (Database Password & Email Service)"
+  enable_key_rotation     = var.key_rotation
+  rotation_period_in_days = var.rotation_period_in_days
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
