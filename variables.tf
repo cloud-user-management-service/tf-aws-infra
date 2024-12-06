@@ -363,3 +363,8 @@ variable "ssl_policy" {
 variable "certificate_arn" {
   description = "The ARN for the SSL certificate"
 }
+
+variable "rotation_period_in_days" {
+  description = "The rotation period for the key"
+  default     = 90
+}
