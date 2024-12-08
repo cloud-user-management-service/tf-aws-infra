@@ -6,13 +6,13 @@ resource "aws_security_group" "lb_sg" {
 
   # Inbound Rules
   # HTTP access from anywhere
-  ingress {
-    description = "Allow HTTP access from anywhere"
-    from_port   = var.ingress_port_http //80
-    to_port     = var.ingress_port_http
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  # ingress {
+  #   description = "Allow HTTP access from anywhere"
+  #   from_port   = var.ingress_port_http //80
+  #   to_port     = var.ingress_port_http
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
 
   # HTTPS access from anywhere
   ingress {
